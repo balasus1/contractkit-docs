@@ -1,0 +1,536 @@
+# contractkit-docs
+
+---
+
+## File Routing
+
+# File Routing
+
+Tome uses file-system routing. Every `.md` or `.mdx` file in the `pages/` directory becomes a page.
+
+## How paths map to URLs
+
+| File | URL |
+|------|-----|
+| `pages/index.md` | `/` |
+| `pages/quickstart.md` | `/quickstart` |
+| `pages/guides/setup.md` | `/guides/setup` |
+| `pages/reference/config.md` | `/reference/config` |
+
+## Rules
+
+- **`index.md`** in any directory becomes the root of that path (`pages/guides/index.md` → `/guides`).
+- **Nested directories** create nested URL paths.
+- **File extension** is stripped — both `.md` and `.mdx` work the same way.
+- **Underscored files** (e.g., `_draft.md`) are ignored.
+
+## Navigation vs routing
+
+File routing determines what URLs exist. The `navigation` array in `tome.config.js` determines what appears in the sidebar and in what order. Pages that exist but are not listed in navigation are still accessible by URL — they just do not appear in the sidebar.
+
+## Organizing content
+
+We recommend the [Diataxis](https://diataxis.fr) structure:
+
+```text
+pages/
+├── index.md
+├── tutorials/       # Learning-oriented
+├── guides/          # Task-oriented
+├── reference/       # Information-oriented
+└── concepts/        # Understanding-oriented
+```
+
+This gives your readers a clear mental model of where to find what they need.
+
+---
+
+## How Tome Works
+
+# How Tome Works
+
+Tome turns a folder of Markdown files into a single-page application. Here is how.
+
+## The pipeline
+
+1. **You write Markdown** — `.md` and `.mdx` files in the `pages/` directory.
+2. **Tome reads your config** — `tome.config.js` defines navigation, theme, and site metadata.
+3. **Vite builds the app** — Tome's Vite plugin transforms your content into React components at build time.
+4. **The theme renders it** — The shell component handles layout, sidebar, search, and navigation.
+5. **Static output** — `tome build` produces static HTML, CSS, and JS in the `out/` directory.
+
+## Key pieces
+
+| Package | Role |
+|---------|------|
+| `@tomehq/cli` | CLI commands — `init`, `dev`, `build`, `deploy` |
+| `@tomehq/core` | Config loading, routing, Vite plugin, markdown processing |
+| `@tomehq/theme` | UI shell, sidebar, search, dark mode, presets |
+| `@tomehq/components` | MDX components — Callout, Tabs, Card, Steps, etc. |
+
+## Dev vs build
+
+In **development**, Tome runs a Vite dev server with hot module replacement. Edit a file, save, and the browser updates instantly.
+
+In **production**, `tome build` pre-renders all routes to static HTML with client-side hydration. The output works on any static host — no server required.
+
+## Agent-friendly output
+
+Every build automatically generates:
+
+- `llms.txt` — Structured content for LLMs
+- `search.json` — Full-text search index
+- `mcp.json` — MCP server configuration
+- `robots.txt` — Crawler directives
+- JSON-LD schema markup in every page
+
+---
+
+## Customizing Your Site
+
+# Customizing Your Site
+
+All configuration lives in `tome.config.js` at the root of your project.
+
+## Change the site name
+
+```javascript
+export default {
+  name: "My Project",
+};
+```
+
+The name appears in the sidebar header and browser tab.
+
+## Switch themes
+
+Tome ships with two presets:
+
+```javascript
+theme: {
+  preset: "amber",      // Warm, approachable (default)
+  // preset: "editorial", // Clean, typographic
+  mode: "auto",          // "light", "dark", or "auto"
+},
+```
+
+## Custom accent color
+
+Override the default accent with any hex color:
+
+```javascript
+theme: {
+  preset: "amber",
+  accent: "#3b82f6",  // Blue accent
+  mode: "auto",
+},
+```
+
+## Organize navigation
+
+The sidebar is defined by the `navigation` array. Each group has a label and a list of page IDs:
+
+```javascript
+navigation: [
+  {
+    group: "Getting Started",
+    pages: ["index", "tutorials/getting-started"],
+  },
+  {
+    group: "API",
+    pages: ["reference/endpoints", "reference/auth"],
+  },
+],
+```
+
+Page IDs are file paths relative to `pages/`, without the extension.
+
+## Add social links
+
+```javascript
+socialLinks: [
+  { platform: "github", url: "https://github.com/your-org/your-repo" },
+  { platform: "discord", url: "https://discord.gg/your-server" },
+  { platform: "twitter", url: "https://x.com/your-handle" },
+],
+```
+
+See the [Configuration Reference](/reference/config) for every available option.
+
+---
+
+## Welcome
+
+# contractkit-docs
+
+Welcome to your documentation site. This project was scaffolded with [Tome](https://tome.center) — write in Markdown, ship beautiful docs.
+
+## Quick Start
+
+```bash
+npm run dev       # Start dev server at localhost:3000
+npm run build     # Build static site to out/
+```
+
+## Project Structure
+
+```text
+contractkit-docs/
+├── tome.config.js         # Site configuration
+├── pages/                 # Documentation pages
+│   ├── index.md           # This page
+│   ├── tutorials/         # Step-by-step lessons
+│   ├── guides/            # Task-oriented how-tos
+│   ├── reference/         # Technical reference
+│   └── concepts/          # Explanations and architecture
+├── public/                # Static assets (images, fonts)
+└── package.json
+```
+
+This site follows the [Diataxis](https://diataxis.fr) documentation framework — four categories that serve different reader needs:
+
+| Category | Purpose | Example |
+|----------|---------|---------|
+| **Tutorials** | Learning-oriented. Walk a beginner through a task. | "Build your first docs site" |
+| **Guides** | Task-oriented. Solve a specific problem. | "Add a callout component" |
+| **Reference** | Information-oriented. Describe the machinery. | "Configuration options" |
+| **Concepts** | Understanding-oriented. Explain how things work. | "How file routing works" |
+
+## Next Steps
+
+- **[Getting Started](/tutorials/getting-started)** — Build and customize your first page.
+- **[Components Guide](/guides/components)** — Add interactive elements to your docs.
+- **[Configuration Reference](/reference/config)** — Every option in `tome.config.js`.
+
+---
+
+## CLI Reference
+
+# CLI Reference
+
+## tome init
+
+Create a new documentation project.
+
+```bash
+tome init [name]
+```
+
+| Option | Description |
+|--------|-------------|
+| `-t, --template <name>` | Starter template (default: `"default"`) |
+
+## tome dev
+
+Start the development server with hot reloading.
+
+```bash
+tome dev
+```
+
+| Option | Description |
+|--------|-------------|
+| `-p, --port <number>` | Port number (default: `3000`) |
+| `--host` | Expose to network |
+
+## tome build
+
+Build the site for production.
+
+```bash
+tome build
+```
+
+Outputs static files to the `out/` directory.
+
+## tome deploy
+
+Deploy to Tome Cloud.
+
+```bash
+tome deploy
+```
+
+| Option | Description |
+|--------|-------------|
+| `--preview` | Create a preview deployment |
+
+Requires `TOME_TOKEN` environment variable or `tome login`.
+
+---
+
+## Component Reference
+
+# Component Reference
+
+All built-in components are available in `.mdx` files without imports.
+
+## Callout
+
+```jsx
+<Callout type="info" title="Title">
+  Content here.
+</Callout>
+```
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `type` | `"info" \| "tip" \| "warning" \| "danger"` | Yes | Visual style |
+| `title` | `string` | No | Header text |
+
+## Tabs
+
+```jsx
+<Tabs items={["Tab 1", "Tab 2"]}>
+  <div>Content for tab 1</div>
+  <div>Content for tab 2</div>
+</Tabs>
+```
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `items` | `string[]` | Yes | Tab labels |
+
+## Card
+
+```jsx
+<Card title="Title" icon="🚀" href="/link">
+  Description text.
+</Card>
+```
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | Yes | Card heading |
+| `icon` | `string` | No | Emoji or icon |
+| `href` | `string` | No | Link target |
+
+## CardGroup
+
+```jsx
+<CardGroup cols={2}>
+  <Card title="A" />
+  <Card title="B" />
+</CardGroup>
+```
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `cols` | `number` | No | Column count (default: 3) |
+
+## Steps
+
+```jsx
+<Steps>
+  <div>**Step 1** — Description</div>
+  <div>**Step 2** — Description</div>
+</Steps>
+```
+
+Each direct child `<div>` becomes a numbered step.
+
+## Accordion
+
+```jsx
+<Accordion title="Question?">
+  Answer content.
+</Accordion>
+```
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | Yes | Toggle header |
+
+---
+
+## Configuration
+
+# Configuration Reference
+
+All options for `tome.config.js`.
+
+## Top-level options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `name` | `string` | `"My Docs"` | Site name shown in sidebar and title |
+| `description` | `string` | — | Site description for SEO |
+| `logo` | `string` | — | Path to logo image |
+| `favicon` | `string` | — | Path to favicon |
+| `navigation` | `array` | `[]` | Sidebar navigation groups |
+| `socialLinks` | `array` | `[]` | Social links in the header |
+
+## theme
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `preset` | `"amber" \| "editorial"` | `"amber"` | Theme preset |
+| `accent` | `string` | — | Custom accent color (hex) |
+| `mode` | `"light" \| "dark" \| "auto"` | `"auto"` | Color mode |
+
+## navigation
+
+```javascript
+navigation: [
+  {
+    group: "Section Name",
+    pages: ["page-id", "folder/page-id"],
+  },
+],
+```
+
+Page IDs are file paths relative to `pages/`, without the file extension.
+
+## socialLinks
+
+```javascript
+socialLinks: [
+  { platform: "github", url: "https://github.com/..." },
+  { platform: "twitter", url: "https://x.com/..." },
+  { platform: "discord", url: "https://discord.gg/..." },
+  { platform: "custom", url: "https://...", icon: "mastodon" },
+],
+```
+
+Supported platforms: `github`, `twitter`, `discord`, `linkedin`, `custom`.
+
+---
+
+## Deploy Your Site
+
+# Deploy Your Site
+
+Tome builds to static files that work on any hosting platform. This tutorial covers building and deploying.
+
+## Build for production
+
+```bash
+npm run build
+```
+
+This outputs a static site to the `out/` directory.
+
+## Deploy options
+
+### Vercel
+
+```bash
+npx vercel deploy ./out
+```
+
+### Netlify
+
+```bash
+npx netlify deploy --dir=./out --prod
+```
+
+### Cloudflare Pages
+
+```bash
+npx wrangler pages deploy ./out
+```
+
+### Tome Cloud
+
+```bash
+npm run deploy
+```
+
+This uses `tome deploy` which uploads your site to Tome Cloud with hash-based deduplication.
+
+## CI/CD
+
+This project includes a GitHub Actions workflow at `.github/workflows/deploy.yml` that automatically deploys on push to `main` and creates preview deployments for pull requests.
+
+## What you learned
+
+You built your site to static files and deployed it. Your docs are now live.
+
+---
+
+## Getting Started
+
+# Getting Started
+
+This tutorial walks you through creating and customizing your first documentation page. By the end, you will have a working page with formatted content and navigation.
+
+## Prerequisites
+
+- Node.js 20 or later ([download](https://nodejs.org))
+- A code editor (VS Code, Cursor, etc.)
+- A terminal
+
+## Step 1: Start the dev server
+
+If you haven't already, install dependencies and start the server:
+
+```bash
+cd contractkit-docs
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). You should see this documentation site.
+
+## Step 2: Create a new page
+
+Create a new file at `pages/tutorials/my-first-page.md`:
+
+```markdown
+---
+title: My First Page
+description: A page I created from scratch.
+---
+
+# My First Page
+
+This is my first documentation page. It supports **bold**, *italic*, \`code\`, and more.
+
+## A section
+
+Content is organized with headings. Each heading appears in the table of contents.
+
+- Bullet lists work
+- So do numbered lists
+- And [links](https://tome.center)
+```
+
+Save the file. The browser reloads automatically.
+
+## Step 3: Add it to the sidebar
+
+Open `tome.config.js` and add your page to the navigation:
+
+```javascript
+{
+  group: "Tutorials",
+  pages: ["tutorials/getting-started", "tutorials/my-first-page", "tutorials/deploy"],
+},
+```
+
+The page ID is the file path relative to `pages/`, without the extension.
+
+## Step 4: Add frontmatter
+
+Every page supports YAML frontmatter at the top:
+
+```markdown
+---
+title: My First Page
+description: A page I created from scratch.
+icon: book
+sidebarTitle: First Page
+---
+```
+
+| Field | Description |
+|-------|-------------|
+| `title` | Page title in browser tab and sidebar |
+| `description` | Summary for search and SEO |
+| `icon` | Icon next to the title in the sidebar |
+| `sidebarTitle` | Override the sidebar label |
+| `hidden` | Set to `true` to hide from sidebar |
+
+## What you learned
+
+You created a Markdown page, added it to navigation, and configured frontmatter. Next, try adding [interactive components](/guides/components) to your pages.

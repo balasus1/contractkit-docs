@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "generator": "tome",
+  "site": "contractkit-docs",
+  "totalPages": 10,
+  "searchEndpoint": "/pagefind/pagefind.js",
+  "pages": [
+    {
+      "id": "concepts/file-routing",
+      "url": "/concepts/file-routing",
+      "title": "File Routing",
+      "description": "How files in the pages directory map to URLs on your site.",
+      "headings": [
+        "How paths map to URLs",
+        "Rules",
+        "Navigation vs routing",
+        "Organizing content"
+      ],
+      "tags": [],
+      "wordCount": 187
+    },
+    {
+      "id": "concepts/how-tome-works",
+      "url": "/concepts/how-tome-works",
+      "title": "How Tome Works",
+      "description": "Understand the architecture behind Tome — from Markdown files to a running documentation site.",
+      "headings": [
+        "The pipeline",
+        "Key pieces",
+        "Dev vs build",
+        "Agent-friendly output"
+      ],
+      "tags": [],
+      "wordCount": 237
+    },
+    {
+      "id": "guides/components",
+      "url": "/guides/components",
+      "title": "Using Components",
+      "description": "Add interactive elements like callouts, tabs, cards, and steps to your documentation.",
+      "headings": [],
+      "tags": [],
+      "wordCount": 0
+    },
+    {
+      "id": "guides/configuration",
+      "url": "/guides/configuration",
+      "title": "Customizing Your Site",
+      "description": "Change your site name, theme, colors, and navigation layout.",
+      "headings": [
+        "Change the site name",
+        "Switch themes",
+        "Custom accent color",
+        "Organize navigation",
+        "Add social links"
+      ],
+      "tags": [],
+      "wordCount": 185
+    },
+    {
+      "id": "index",
+      "url": "/",
+      "title": "Welcome",
+      "description": "Documentation for contractkit-docs, powered by Tome.",
+      "headings": [
+        "Quick Start",
+        "Project Structure",
+        "Next Steps"
+      ],
+      "tags": [],
+      "wordCount": 209
+    },
+    {
+      "id": "reference/cli",
+      "url": "/reference/cli",
+      "title": "CLI Reference",
+      "description": "Every command and flag available in the Tome CLI.",
+      "headings": [
+        "tome init",
+        "tome dev",
+        "tome build",
+        "tome deploy"
+      ],
+      "tags": [],
+      "wordCount": 120
+    },
+    {
+      "id": "reference/components",
+      "url": "/reference/components",
+      "title": "Component Reference",
+      "description": "API reference for every built-in MDX component.",
+      "headings": [
+        "Callout",
+        "Tabs",
+        "Card",
+        "CardGroup",
+        "Steps",
+        "Accordion"
+      ],
+      "tags": [],
+      "wordCount": 235
+    },
+    {
+      "id": "reference/config",
+      "url": "/reference/config",
+      "title": "Configuration",
+      "description": "Complete reference for every option in tome.config.js.",
+      "headings": [
+        "Top-level options",
+        "theme",
+        "navigation",
+        "socialLinks"
+      ],
+      "tags": [],
+      "wordCount": 212
+    },
+    {
+      "id": "tutorials/deploy",
+      "url": "/tutorials/deploy",
+      "title": "Deploy Your Site",
+      "description": "Build your docs for production and deploy to any static hosting provider.",
+      "headings": [
+        "Build for production",
+        "Deploy options",
+        "Vercel",
+        "Netlify",
+        "Cloudflare Pages",
+        "Tome Cloud",
+        "CI/CD",
+        "What you learned"
+      ],
+      "tags": [],
+      "wordCount": 135
+    },
+    {
+      "id": "tutorials/getting-started",
+      "url": "/tutorials/getting-started",
+      "title": "Getting Started",
+      "description": "Build your first documentation page from scratch — from writing content to seeing it in the browser.",
+      "headings": [
+        "Prerequisites",
+        "Step 1: Start the dev server",
+        "Step 2: Create a new page",
+        "Step 3: Add it to the sidebar",
+        "Step 4: Add frontmatter",
+        "What you learned"
+      ],
+      "tags": [],
+      "wordCount": 316
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# contractkit-docs
+
+> Documentation site powered by Tome
+
+- [File Routing](/concepts/file-routing) - How files in the pages directory map to URLs on your site.
+- [How Tome Works](/concepts/how-tome-works) - Understand the architecture behind Tome — from Markdown files to a running documentation site.
+- [Using Components](/guides/components) - Add interactive elements like callouts, tabs, cards, and steps to your documentation.
+- [Customizing Your Site](/guides/configuration) - Change your site name, theme, colors, and navigation layout.
+- [Welcome](/) - Documentation for contractkit-docs, powered by Tome.
+- [CLI Reference](/reference/cli) - Every command and flag available in the Tome CLI.
+- [Component Reference](/reference/components) - API reference for every built-in MDX component.
+- [Configuration](/reference/config) - Complete reference for every option in tome.config.js.
+- [Deploy Your Site](/tutorials/deploy) - Build your docs for production and deploy to any static hosting provider.
+- [Getting Started](/tutorials/getting-started) - Build your first documentation page from scratch — from writing content to seeing it in the browser.
