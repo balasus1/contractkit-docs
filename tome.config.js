@@ -28,6 +28,7 @@ export default {
         "guides/docs-and-mock-server",
         "guides/publishing-to-github",
         "guides/ckit-cli",
+        "guides/self-hosting",
       ],
     },
     {
