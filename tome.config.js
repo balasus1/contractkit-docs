@@ -27,6 +27,7 @@ export default {
         "guides/review-workflow",
         "guides/docs-and-mock-server",
         "guides/publishing-to-github",
+        "guides/ckit-cli",
       ],
     },
     {
