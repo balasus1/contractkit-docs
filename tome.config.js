@@ -17,7 +17,7 @@ export default {
     },
     {
       group: "Guides",
-      pages: ["guides/roles-and-access"],
+      pages: ["guides/roles-and-access", "guides/projects-and-modules"],
     },
     {
       group: "Concepts",
