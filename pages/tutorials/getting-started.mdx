@@ -1,0 +1,117 @@
+---
+title: Getting Started
+description: A role-based quickstart — set up your workspace as an Admin, ship your first contract as a Developer, or approve one as a Reviewer.
+icon: rocket
+---
+
+# Getting Started
+
+ContractKit is used a little differently depending on your role. Pick the path that matches what you're here to do — you can always come back and follow the others later.
+
+<Callout type="info" title="New to ContractKit?">
+  Read [Core Concepts](/concepts/core-concepts) first if terms like "module" or "reviewStatus" are unfamiliar — it's a five-minute read that makes the rest of the docs click into place.
+</Callout>
+
+<Tabs items={["Admin", "Developer", "Reviewer"]}>
+  <div>
+    ## Admin quickstart
+
+    As the first person in your workspace, you're responsible for the account-level setup everyone else depends on.
+
+    <Steps>
+      <div>
+        **Create your workspace**
+
+        Sign up and create your workspace (name, slug, icon color). Note that today, one account supports exactly one workspace — you won't see an option to create a second.
+      </div>
+      <div>
+        **Connect GitHub**
+
+        From the Integrations view, click **Connect GitHub**. This starts an OAuth flow requesting `repo` and `workflow` scopes — needed later for publishing generated specs and SDKs as GitHub releases. See [Publishing to GitHub](/guides/publishing-to-github).
+      </div>
+      <div>
+        **Invite your team and assign roles**
+
+        Add Developers and Reviewers to the workspace and grant them project-level access. Full detail in [Roles & Access Control](/guides/roles-and-access).
+      </div>
+      <div>
+        **Issue an API key (optional)**
+
+        If your team wants to use the [`ckit` CLI](/guides/ckit-cli) or hit the REST API from CI, generate a key under **Dashboard → Settings → API Keys**.
+      </div>
+    </Steps>
+
+    Once this is done, hand off to your Developers — day-to-day contract work happens at the project level, not the admin level.
+  </div>
+  <div>
+    ## Developer quickstart
+
+    This walks through building and submitting your first endpoint.
+
+    <Steps>
+      <div>
+        **Create a project**
+
+        From the dashboard, create a project: name, API version, license, copyright owner. ContractKit auto-creates a "Core Module" inside it. Details in [Creating Projects & Modules](/guides/projects-and-modules).
+      </div>
+      <div>
+        **Add an endpoint**
+
+        Inside the module, add an endpoint: give it a name, HTTP method, and path. Build its request and response schemas field by field, or describe it in plain English and let AI draft the schema for you. See [Building Endpoints & Schemas](/guides/endpoints-and-schemas).
+      </div>
+      <div>
+        **Add annotations (optional)**
+
+        Toggle on `@PreAuthorize`, `@Loggable`, or `@JsonView` if your generated Spring Boot code needs them. See [Annotations](/guides/annotations).
+      </div>
+      <div>
+        **Submit for review**
+
+        Click **Submit for Review**. The endpoint moves from `draft` to `pending` and locks — a Reviewer needs to approve it next. See [Review & Approval Workflow](/guides/review-workflow).
+      </div>
+      <div>
+        **Generate code**
+
+        Once approved, generate a Spring Boot backend, a React/Angular client, or a raw OpenAPI spec from the module. See [Code & Spec Generation](/guides/code-generation).
+      </div>
+    </Steps>
+  </div>
+  <div>
+    ## Reviewer quickstart
+
+    Reviewers are the gate between "someone built this" and "this is real."
+
+    <Steps>
+      <div>
+        **Open the Review Inbox**
+
+        Endpoints with `reviewStatus: pending` show up here, grouped by project/module.
+      </div>
+      <div>
+        **Read the contract, not just the diff**
+
+        Check the method, path, schema fields, sample values, and any annotations against what was actually agreed. Comments can be left directly on an endpoint.
+      </div>
+      <div>
+        **Approve or reject**
+
+        Approving moves the endpoint to `approved` — it becomes eligible for the module's docs page, mock server, code generation, and GitHub publishing. Rejecting sends it back to the Developer. Full detail in [Review & Approval Workflow](/guides/review-workflow).
+      </div>
+    </Steps>
+
+    <Callout type="tip" title="CI reviewers">
+      Reviewers can also work entirely from the terminal with `ckit status`, `ckit approve`, and `ckit reject` — useful for gating a pipeline on contract approval. See [Using the ckit CLI](/guides/ckit-cli).
+    </Callout>
+  </div>
+</Tabs>
+
+## What's next
+
+<CardGroup cols={2}>
+  <Card title="Core Concepts" icon="🧩" href="/concepts/core-concepts">
+    The Workspace → Project → Module → Endpoint model, explained in full.
+  </Card>
+  <Card title="Roles & Access Control" icon="🔐" href="/guides/roles-and-access">
+    Set up your workspace's members and permissions properly.
+  </Card>
+</CardGroup>
