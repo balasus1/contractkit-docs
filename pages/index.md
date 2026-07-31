@@ -1,45 +1,36 @@
 ---
 title: Welcome
-description: Documentation for contractkit-docs, powered by Tome.
+description: ContractKit — design, review, and generate API contracts from a single source of truth.
+icon: house
 ---
 
-# contractkit-docs
+# ContractKit Documentation
 
-Welcome to your documentation site. This project was scaffolded with [Tome](https://tome.center) — write in Markdown, ship beautiful docs.
+**ContractKit** makes the API contract the single source of truth for your team. Instead of a backend team defining an API, a frontend team guessing at its shape, and docs quietly drifting out of sync, everyone designs, reviews, and generates from the same contract.
 
-## Quick Start
+## What ContractKit gives you
 
-```bash
-npm run dev       # Start dev server at localhost:3000
-npm run build     # Build static site to out/
-```
+- **A visual contract builder** — define endpoints, request/response schemas, and Spring annotations (`@PreAuthorize`, `@Loggable`, `@JsonView`) without hand-writing YAML.
+- **A review workflow** — endpoints move through `draft → pending → approved` before they're generated, published, or shown in docs, with dedicated Developer and Reviewer roles.
+- **Code & spec generation** — download a Spring Boot backend, a React or Angular client, or a raw OpenAPI spec, generated straight from your approved contract.
+- **Contract import** — pull in an existing OpenAPI spec or Postman collection instead of starting from scratch.
+- **Live docs & a mock server** — every module gets a Swagger UI docs page and a mock API your frontend can build against before the real backend exists.
+- **GitHub publishing** — push versioned OpenAPI specs and generated SDKs to a GitHub release, with automatic breaking-change detection.
+- **A CLI (`ckit`)** — the same workflow from your terminal or CI pipeline.
 
-## Project Structure
+## Where to start
 
-```text
-contractkit-docs/
-├── tome.config.js         # Site configuration
-├── pages/                 # Documentation pages
-│   ├── index.md           # This page
-│   ├── tutorials/         # Step-by-step lessons
-│   ├── guides/            # Task-oriented how-tos
-│   ├── reference/         # Technical reference
-│   └── concepts/          # Explanations and architecture
-├── public/                # Static assets (images, fonts)
-└── package.json
-```
+| If you are... | Start here |
+|----------------|------------|
+| New to ContractKit | [Getting Started](/tutorials/getting-started) |
+| Setting up a workspace for your team | [Roles & Access Control](/guides/roles-and-access) |
+| Building your first contract | [Creating Projects & Modules](/guides/projects-and-modules) |
+| Reviewing endpoints someone else built | [Review & Approval Workflow](/guides/review-workflow) |
+| Automating contracts in CI | [Using the ckit CLI](/guides/ckit-cli) |
 
-This site follows the [Diataxis](https://diataxis.fr) documentation framework — four categories that serve different reader needs:
+## How the docs are organized
 
-| Category | Purpose | Example |
-|----------|---------|---------|
-| **Tutorials** | Learning-oriented. Walk a beginner through a task. | "Build your first docs site" |
-| **Guides** | Task-oriented. Solve a specific problem. | "Add a callout component" |
-| **Reference** | Information-oriented. Describe the machinery. | "Configuration options" |
-| **Concepts** | Understanding-oriented. Explain how things work. | "How file routing works" |
-
-## Next Steps
-
-- **[Getting Started](/tutorials/getting-started)** — Build and customize your first page.
-- **[Components Guide](/guides/components)** — Add interactive elements to your docs.
-- **[Configuration Reference](/reference/config)** — Every option in `tome.config.js`.
+- **Tutorials** — learning-oriented, walks you through a first task end to end.
+- **Guides** — task-oriented how-tos for each part of the product.
+- **Reference** — the data model, CLI commands, and REST API, described precisely.
+- **Concepts** — how ContractKit actually works under the hood, and its security model.
