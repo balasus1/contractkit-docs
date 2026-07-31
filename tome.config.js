@@ -16,6 +16,10 @@ export default {
       pages: ["tutorials/getting-started"],
     },
     {
+      group: "Guides",
+      pages: ["guides/roles-and-access"],
+    },
+    {
       group: "Concepts",
       pages: ["concepts/core-concepts"],
     },
