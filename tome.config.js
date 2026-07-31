@@ -1,6 +1,7 @@
 /** @type {import('@tomehq/core').TomeConfig} */
 export default {
-  name: "contractkit-docs",
+  name: "ContractKit",
+  description: "Design, review, and generate API contracts from a single source of truth.",
   theme: {
     preset: "amber",
     mode: "auto",
@@ -12,23 +13,14 @@ export default {
     },
     {
       group: "Tutorials",
-      pages: ["tutorials/getting-started", "tutorials/deploy"],
-    },
-    {
-      group: "Guides",
-      pages: ["guides/components", "guides/configuration"],
-    },
-    {
-      group: "Reference",
-      pages: ["reference/config", "reference/components", "reference/cli"],
+      pages: ["tutorials/getting-started"],
     },
     {
       group: "Concepts",
-      pages: ["concepts/how-tome-works", "concepts/file-routing"],
+      pages: ["concepts/core-concepts"],
     },
   ],
-  // socialLinks: [
-  //   { platform: "github", url: "https://github.com/your-org/your-repo" },
-  //   { platform: "twitter", url: "https://x.com/your-handle" },
-  // ],
+  socialLinks: [
+    { platform: "github", url: "https://github.com/balasus1/contractkit" },
+  ],
 };
