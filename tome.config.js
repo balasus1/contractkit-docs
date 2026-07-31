@@ -23,6 +23,7 @@ export default {
         "guides/endpoints-and-schemas",
         "guides/annotations",
         "guides/code-generation",
+        "guides/importing-contracts",
       ],
     },
     {
