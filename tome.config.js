@@ -26,6 +26,7 @@ export default {
         "guides/importing-contracts",
         "guides/review-workflow",
         "guides/docs-and-mock-server",
+        "guides/publishing-to-github",
       ],
     },
     {
