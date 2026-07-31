@@ -22,6 +22,7 @@ export default {
         "guides/projects-and-modules",
         "guides/endpoints-and-schemas",
         "guides/annotations",
+        "guides/code-generation",
       ],
     },
     {
