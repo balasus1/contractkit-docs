@@ -24,6 +24,7 @@ export default {
         "guides/annotations",
         "guides/code-generation",
         "guides/importing-contracts",
+        "guides/review-workflow",
       ],
     },
     {
