@@ -1,4 +1,4 @@
-import{t as e}from"./index-BpBLqqhj.js";var t=e();function n(e){let n={code:`code`,h1:`h1`,h2:`h2`,p:`p`,pre:`pre`,strong:`strong`,...e.components},{Accordion:r,Callout:a,Card:o,CardGroup:s,Steps:c,Tabs:l}=n;return r||i(`Accordion`,!0),a||i(`Callout`,!0),o||i(`Card`,!0),s||i(`CardGroup`,!0),c||i(`Steps`,!0),l||i(`Tabs`,!0),(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h1,{children:`Using Components`}),`
+import{t as e}from"./index-FSKXg3rN.js";var t=e();function n(e){let n={code:`code`,h1:`h1`,h2:`h2`,p:`p`,pre:`pre`,strong:`strong`,...e.components},{Accordion:r,Callout:a,Card:o,CardGroup:s,Steps:c,Tabs:l}=n;return r||i(`Accordion`,!0),a||i(`Callout`,!0),o||i(`Card`,!0),s||i(`CardGroup`,!0),c||i(`Steps`,!0),l||i(`Tabs`,!0),(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h1,{children:`Using Components`}),`
 `,(0,t.jsxs)(n.p,{children:[`Tome includes built-in components you can use in any `,(0,t.jsx)(n.code,{children:`.mdx`}),` file. No imports required.`]}),`
 `,(0,t.jsx)(n.h2,{children:`Callouts`}),`
 `,(0,t.jsx)(n.p,{children:`Draw attention to important information:`}),`
