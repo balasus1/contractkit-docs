@@ -32,6 +32,10 @@ export default {
       ],
     },
     {
+      group: "Reference",
+      pages: ["reference/data-model"],
+    },
+    {
       group: "Concepts",
       pages: ["concepts/core-concepts"],
     },
