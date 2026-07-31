@@ -25,6 +25,7 @@ export default {
         "guides/code-generation",
         "guides/importing-contracts",
         "guides/review-workflow",
+        "guides/docs-and-mock-server",
       ],
     },
     {
