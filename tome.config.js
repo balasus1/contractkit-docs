@@ -37,7 +37,7 @@ export default {
     },
     {
       group: "Concepts",
-      pages: ["concepts/core-concepts"],
+      pages: ["concepts/core-concepts", "concepts/architecture"],
     },
   ],
   socialLinks: [
