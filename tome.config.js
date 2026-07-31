@@ -33,7 +33,7 @@ export default {
     },
     {
       group: "Reference",
-      pages: ["reference/data-model"],
+      pages: ["reference/data-model", "reference/cli-commands"],
     },
     {
       group: "Concepts",
