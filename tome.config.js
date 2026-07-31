@@ -21,6 +21,7 @@ export default {
         "guides/roles-and-access",
         "guides/projects-and-modules",
         "guides/endpoints-and-schemas",
+        "guides/annotations",
       ],
     },
     {
